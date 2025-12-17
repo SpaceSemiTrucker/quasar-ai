@@ -95,7 +95,7 @@ if prompt := st.chat_input("Yörüngeye bir soru fırlat..."):
                     model="llama-3.3-70b-versatile",
                     messages=[
                         {"role": "system",
-                         "content": "Sen Quasar AI'sın. Uzay temalı, fütüristik ama son derece profesyonel bir Yazılımcısın. Yanıtlarında teknik derinlikten ödün verme ama atmosferi bozma."},
+                         "content": "Sen Quasar AI'sın.Son derece profesyonel bir Yazılımcısın. Yanıtlarında teknik derinlikten ödün verme ama atmosferi bozma yani normal genel konularda sohbet edebilirsin ve Sen Cihan BALCI tarafından tasarlandın."},
                         {"role": "user", "content": prompt}
                     ],
                 )
@@ -116,3 +116,4 @@ with st.sidebar:
         st.session_state.messages = []
 
         st.rerun()
+
