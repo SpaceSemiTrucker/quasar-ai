@@ -1,11 +1,8 @@
-# API Key'i doğrudan yazmıyoruz, Streamlit'in gizli kasasından çekiyoruz
 import streamlit as st
 from groq import Groq
 
-# Artık anahtar burada değil, sistemin arkasında saklı
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
-# 2. Sayfa Ayarları ve Quasar AI Teması (CSS)
 st.set_page_config(page_title="Quasar AI | SBP", page_icon="🌌", layout="centered")
 
 st.markdown(f"""
@@ -67,27 +64,22 @@ st.markdown(f"""
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Başlık ve Karşılama
 st.title("🌌 QUASAR AI")
 st.markdown("<p style='text-align: center; color: #00ffff;'>Teknoloji Galaksisinde Teknik Rehberiniz</p>",
             unsafe_allow_html=True)
 
-# 4. Sohbet Hafızası
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Mesajları Ekrana Bas
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# 5. Kullanıcı Girişi
 if prompt := st.chat_input("Yörüngeye bir soru fırlat..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(f"<span style='color: #00ffff;'>{prompt}</span>", unsafe_allow_html=True)
 
-    # Bot Yanıtı
     with st.chat_message("assistant"):
         with st.spinner("Quasar verileri işliyor..."):
             try:
@@ -105,7 +97,6 @@ if prompt := st.chat_input("Yörüngeye bir soru fırlat..."):
             except Exception as e:
                 st.error(f"Sistem Hatası: {e}")
 
-# Sidebar Bilgi
 with st.sidebar:
     st.markdown("<h2 style='color: #ff00ff;'>🚀 Sistem Durumu</h2>", unsafe_allow_html=True)
     st.write("🟢 Motorlar: Aktif")
@@ -116,5 +107,6 @@ with st.sidebar:
         st.session_state.messages = []
 
         st.rerun()
+
 
 
