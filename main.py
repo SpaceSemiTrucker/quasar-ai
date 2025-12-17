@@ -69,7 +69,7 @@ st.markdown(f"""
 
 # 3. Başlık ve Karşılama
 st.title("🌌 QUASAR AI")
-st.markdown("<p style='text-align: center; color: #00ffff;'>Şehir Planlama Galaksisinde Teknik Rehberiniz</p>",
+st.markdown("<p style='text-align: center; color: #00ffff;'>Teknoloji Galaksisinde Teknik Rehberiniz</p>",
             unsafe_allow_html=True)
 
 # 4. Sohbet Hafızası
@@ -95,7 +95,7 @@ if prompt := st.chat_input("Yörüngeye bir soru fırlat..."):
                     model="llama-3.3-70b-versatile",
                     messages=[
                         {"role": "system",
-                         "content": "Sen Quasar AI'sın. Uzay temalı, fütüristik ama son derece profesyonel bir şehir plancısısın. Yanıtlarında teknik derinlikten ödün verme ama atmosferi bozma."},
+                         "content": "Sen Quasar AI'sın. Uzay temalı, fütüristik ama son derece profesyonel bir Yazılımcısın. Yanıtlarında teknik derinlikten ödün verme ama atmosferi bozma."},
                         {"role": "user", "content": prompt}
                     ],
                 )
@@ -114,4 +114,5 @@ with st.sidebar:
     st.markdown("---")
     if st.button("Hafızayı Sıfırla"):
         st.session_state.messages = []
+
         st.rerun()
